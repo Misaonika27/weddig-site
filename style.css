@@ -1,0 +1,690 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  background: linear-gradient(145deg, #f2f9ec 0%, #e2f0d4 100%);
+  color: #2a4b2f;
+  padding: 30px 20px 80px;
+  min-height: 100vh;
+  font-size: 20px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 4px;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  margin-top: 40px;
+  margin-bottom: 0;
+  position: relative;
+}
+
+.hero-top {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 20px;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+/* Карточка с текстом */
+.hero-text {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  width: 100%;
+  background: rgba(255, 255, 245, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 100px 60px 70px;
+  border-radius: 60px;
+  text-align: center;
+  box-shadow: 0 25px 45px rgba(70, 90, 40, 0.15);
+}
+
+/* Цветок слева — верхний левый угол */
+.hero-flower {
+  position: absolute;
+  left: -100px;
+  top: -60px;
+  width: 340px;
+  max-width: none;
+  z-index: 1;
+  opacity: 0.95;
+  filter: drop-shadow(0 10px 15px rgba(60, 80, 30, 0.15));
+  transition: transform 0.4s ease;
+  pointer-events: none;
+}
+
+.hero-flower:hover {
+  transform: scale(1.03);
+}
+
+/* Цветок справа — нижний правый угол */
+.hero-flower-right {
+  position: absolute;
+  bottom: -60px;
+  right: -100px;
+  width: 240px;
+  max-width: none;
+  z-index: 1;
+  opacity: 0.9;
+  filter: drop-shadow(0 10px 15px rgba(60, 80, 30, 0.15));
+  transform: rotate(40deg);
+  transition: transform 0.4s ease;
+  pointer-events: none;
+}
+
+.hero-flower-right:hover {
+  transform: rotate(40deg) scale(1.03);
+}
+
+/* ================= ВНИМАНИЕ ================= */
+
+.attention-badge {
+  display: inline-block;
+  margin: 0 auto 30px;
+  padding: 10px 34px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  font-size: 1.4rem;
+  color: #2a4b2f;
+  border-radius: 8px;
+}
+
+/* ================= ИМЯ ГОСТЯ ================= */
+
+.guest {
+  font-size: 80px;
+  font-family: 'Great Vibes', cursive;
+  line-height: 1.1;
+  color: #2f6b3a;
+  position: relative;
+  z-index: 3;
+  margin: 15px 0 18px 0;
+  transform: translateX(-35px);
+}
+
+/* ================= ТЕКСТ ПРИГЛАШЕНИЯ ================= */
+
+.hero-invite-text {
+  font-size: 1.7rem;
+  line-height: 1.5;
+  color: #3e6b38;
+  text-align: center;
+}
+
+/* ================= СЕКЦИИ ================= */
+
+.section {
+  max-width: 850px;
+  margin: 60px auto;
+  padding: 60px 50px;
+  text-align: center;
+  background-image: url("images/p1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 40px;
+  box-shadow: 
+    0 18px 36px -12px rgba(50, 70, 20, 0.18),
+    0 0 0 1px rgba(180, 210, 140, 0.3);
+  opacity: 0;
+  transform: translateY(32px);
+  transition: all 0.7s ease;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#diagnosisSection {
+  margin-top: 0;
+}
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Показываем секции сразу, если JS не поддерживается */
+.no-js .section {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= ЗАГОЛОВКИ ================= */
+
+h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 62px;
+  margin-bottom: 30px;
+  color: #3c7843;
+  font-weight: normal;
+}
+
+/* ================= ПЛАН (СЕТКА КАРТОЧЕК) ================= */
+
+.plan-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-top: 12px;
+}
+
+.day-item {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 24px;
+  padding: 30px 34px;
+  text-align: left;
+  border: 1px solid #d4e8c5;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.day-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(50, 70, 20, 0.1);
+}
+
+.day-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.7rem;
+  color: #3c7843;
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.day-detail {
+  font-size: 1.3rem;
+  line-height: 1.7;
+  color: #2a4b2f;
+}
+
+.day-detail2 {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #2a4b2f;
+}
+
+.day-detail strong {
+  color: #2f6b3a;
+}
+
+/* ================= БЛОК ДИАГНОЗА (В СТИЛЕ ПЛАНА) ================= */
+
+/* Имена пациентов — по центру, акцентный цвет */
+.diagnosis-patient-name {
+  font-family: 'Great Vibes', cursive;
+  font-size: 4rem;
+  color: #1e4a2c;
+  line-height: 1.1;
+  display: block;
+  text-align: center;
+  margin-bottom: 18px;
+  text-shadow: 2px 3px 12px rgba(30, 74, 44, 0.3);
+  letter-spacing: 2px;
+  position: relative;
+}
+
+/* Декоративное подчёркивание под именами */
+.diagnosis-patient-name::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #1e4a2c, transparent);
+  margin: 12px auto 0;
+  border-radius: 1px;
+}
+
+
+
+.accent-text {
+  color: #1e4a2c;
+  font-weight: 700;
+  padding: 0 4px;
+  white-space: nowrap;
+}
+
+/* Текст внутри day-detail */
+.day-detail p {
+  margin: 0;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: #2a4b2f;
+}
+
+.day-detail strong {
+  color: #1e4a2c;
+  font-weight: 700;
+}
+
+/* Убираем курсив */
+.day-detail em {
+  font-style: normal;
+  color: inherit;
+  font-weight: inherit;
+}
+
+/* ================= ТРАНСПОРТ ================= */
+
+.transport-note {
+  margin-top: 14px;
+  padding: 14px 18px;
+  background: #fef9e6;
+  border-left: 4px solid #b8d49e;
+  border-radius: 0 12px 12px 0;
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+/* ================= ТЕСТЫ (АНАЛИЗЫ) В СТИЛЕ ПЛАНА ================= */
+
+#testsSection .day-item {
+  text-align: center;
+}
+
+#testsSection .day-title {
+  font-size: 2.5rem;
+}
+
+#testsSection .day-detail p {
+  font-size: 1.15rem;
+}
+
+/* ================= RSVP (ЗАПИСЬ НА ПРОЦЕДУРУ) ================= */
+
+.rsvp-card {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 24px;
+  padding: 42px 34px;
+  text-align: center;
+  border: 1px solid #d4e8c5;
+  box-shadow: 0 8px 20px rgba(50, 70, 20, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rsvp-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(50, 70, 20, 0.12);
+}
+
+.rsvp-text {
+  margin: 0 0 18px 0;
+  font-size: 1.3rem;
+  line-height: 1.8;
+  color: #2a4b2f;
+}
+
+.rsvp-text2 {
+  margin: 0 0 18px 0;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #2a4b2f;
+}
+
+.rsvp-text:last-of-type {
+  margin-bottom: 0;
+}
+
+.rsvp-date {
+  color: #1e4a2c;
+  font-weight: 800;
+  white-space: nowrap;
+  background: linear-gradient(to top, rgba(180, 210, 140, 0.35) 30%, transparent 30%);
+  padding: 0 6px;
+}
+
+.rsvp-code {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3.2rem;
+  color: #1e4a2c;
+  margin: 24px 0;
+  line-height: 1.2;
+  text-shadow: 1px 2px 8px rgba(30, 74, 44, 0.2);
+}
+
+/* ================= ПОДПИСЬ ================= */
+
+.signature {
+  margin-top: 30px;
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.4rem;
+  color: #3c7843;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(5px);
+  padding: 16px 30px;
+  border-radius: 20px;
+  display: inline-block;
+  border: 1px solid #d4e8c5;
+  box-shadow: 0 4px 12px rgba(50, 70, 20, 0.06);
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+  text-align: center;
+  margin-top: 50px;
+  padding: 24px;
+  font-size: 1.1rem;
+  color: #5a7d4a;
+  opacity: 0.8;
+}
+
+/* ================= АДАПТИВ ================= */
+
+@media (max-width: 720px) {
+   body {
+    font-size: 17px;
+    padding: 20px 12px 60px;
+  }
+
+  .hero {
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+
+  .hero-top {
+    padding: 20px 10px;
+    min-height: 100vh;
+  }
+
+  .hero-text {
+    padding: 60px 24px 32px;
+    border-radius: 48px;
+    max-width: 100%;
+  }
+
+  .hero-flower {
+    width: 200px;
+    left: -60px;
+    top: -40px;
+  }
+
+  .hero-flower-right {
+    width: 160px;
+    bottom: -40px;
+    right: -50px;
+    transform: rotate(30deg);
+    opacity: 0.8;
+  }
+  
+  .hero-flower-right:hover {
+    transform: rotate(30deg) scale(1.03);
+  }
+
+  .attention-badge {
+    font-size: 1.1rem;
+    padding: 8px 24px;
+    letter-spacing: 3px;
+  }
+
+  .guest {
+    transform: none;
+    font-size: 50px;
+  }
+
+  .hero-invite-text {
+    font-size: 1.3rem;
+  }
+
+  .section {
+    padding: 40px 24px;
+    margin: 40px auto;
+    border-radius: 32px;
+    min-height: 60vh;
+  }
+
+  h2 {
+    font-size: 44px;
+    margin-bottom: 22px;
+  }
+
+  /* План */
+  .plan-grid {
+    gap: 16px;
+  }
+
+  .day-item {
+    padding: 22px 24px;
+  }
+
+  .day-title {
+    font-size: 1.8rem;
+  }
+
+  .day-detail {
+    font-size: 1.1rem;
+  }
+    .day-detail2 {
+    font-size: 0.9 rem;
+  }
+
+  /* Диагноз */
+  .diagnosis-patient-name {
+    font-size: 3rem;
+  }
+
+  .diagnosis-patient-name::after {
+    width: 70px;
+  }
+
+  .diagnosis-description {
+    font-size: 1.1rem;
+  }
+
+  .day-detail p {
+    font-size: 1.1rem;
+  }
+
+  /* Транспорт */
+  .transport-note {
+    font-size: 1rem;
+  }
+
+  /* Тесты */
+  #testsSection .day-title {
+    font-size: 1.6rem;
+  }
+
+  #testsSection .day-detail p {
+    font-size: 1rem;
+  }
+
+  /* RSVP */
+  .rsvp-card {
+    padding: 28px 22px;
+  }
+
+  .rsvp-text {
+    font-size: 1.1rem;
+  }
+
+  .rsvp-text2 {
+    font-size: 0.85rem;
+  }
+
+  .rsvp-code {
+    font-size: 2.4rem;
+    margin: 18px 0;
+  }
+
+  .signature {
+    font-size: 1.8rem;
+    margin-top: 24px;
+    padding: 14px 24px;
+  }
+
+  footer {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+    body {
+    font-size: 17px;
+    padding: 20px 12px 60px;
+  }
+
+  .hero {
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+
+  .hero-top {
+    padding: 20px 10px;
+    min-height: 100vh;
+  }
+
+  .hero-text {
+    padding: 60px 24px 32px;
+    border-radius: 48px;
+    max-width: 100%;
+  }
+
+  .hero-flower {
+    width: 140px;
+    left: -35px;
+    top: -30px;
+  }
+
+  .hero-flower-right {
+    width: 120px;
+    bottom: -30px;
+    right: -30px;
+    transform: rotate(20deg);
+    opacity: 0.7;
+  }
+  
+  .hero-flower-right:hover {
+    transform: rotate(20deg) scale(1.03);
+  }
+
+  .attention-badge {
+    font-size: 1rem;
+    padding: 6px 18px;
+    letter-spacing: 2px;
+  }
+
+  .guest {
+    font-size: 40px;
+    transform: none;
+  }
+
+  .hero-invite-text {
+    font-size: 1.1rem;
+  }
+
+  .section {
+    padding: 30px 16px;
+    margin: 28px auto;
+    border-radius: 24px;
+    min-height: 50vh;
+  }
+
+  h2 {
+    font-size: 34px;
+    margin-bottom: 18px;
+  }
+
+  /* План */
+  .plan-grid {
+    gap: 12px;
+  }
+
+  .day-item {
+    padding: 18px 18px;
+    border-radius: 18px;
+  }
+
+  .day-title {
+    font-size: 1.5rem;
+  }
+
+  .day-detail {
+    font-size: 1rem;
+  }
+   .day-detail2 {
+    font-size: 0.7rem;
+  }
+
+  /* Диагноз */
+  .diagnosis-patient-name {
+    font-size: 2.4rem;
+  }
+
+  .diagnosis-patient-name::after {
+    width: 50px;
+    height: 2px;
+  }
+
+  .diagnosis-description {
+    font-size: 1rem;
+  }
+
+  .day-detail p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .accent-text {
+    white-space: normal;
+  }
+
+  /* Транспорт */
+  .transport-note {
+    font-size: 0.7rem;
+  }
+
+  /* Тесты */
+  #testsSection .day-title {
+    font-size: 1.5rem;
+  }
+
+  #testsSection .day-detail p {
+    font-size: 0.9rem;
+  }
+
+  /* RSVP */
+  .rsvp-card {
+    padding: 22px 16px;
+    border-radius: 18px;
+  }
+
+  .rsvp-text {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .rsvp-text2 {
+    font-size: 0.6rem;
+  }
+
+  .rsvp-code {
+    font-size: 2rem;
+    margin: 14px 0;
+  }
+
+  .signature {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    padding: 12px 20px;
+  }
+
+  footer {
+    font-size: 0.85rem;
+    padding: 16px;
+  }
+}
